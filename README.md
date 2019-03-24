@@ -6,12 +6,12 @@ This is a base image
 - [Jupyter Notebook Data Science Stack](https://hub.docker.com/r/jupyter/datascience-notebook)
 
 Some people reckon that such an environment is satisfied with JupyterNotebook or Colaboratory.
-Yes. You have a good idea. However, the actual reason why I did such a hassle thing is for my comprehension of Docker.
-I am just a one of learners. I wanna understand the usage of Docker. I think this is gonna be a great opportunity.
-Thus, this is insufficient and inconvenient.
+Yes. It's exactly as you thought. However, the actual reason why I did such a hassle thing is for my comprehension of Docker.
+I am just a one of learners. I wanna confirm if I apprehend the usage of Docker. I think this is gonna be a great opportunity.
+As I said, however, I am still a beginner. It means there might be some mistakes. 
+Thus, If you have some advice or request, please feel free to leave [issues](https://github.com/kiwamizamurai/kz-jpylb/issues).
 
-In addition, these are some references when creating this repository
-
+Actually, these has nothing to do with this repository, I listed up some useful and pragmatic references when creating this repository as follows:
 - [Jupyter Data Science Stack + Docker in under 15 minutes](https://towardsdatascience.com/jupyter-data-science-stack-docker-in-under-15-minutes-19d8f822bd45)
 - [ml-jupyterla](https://github.com/asashiho/ml-jupyterlab)
 - [DockerでJupyterLabを構築する](https://qiita.com/muk-ai/items/a147cfd2cafc57420b15)
@@ -29,10 +29,14 @@ There are bunch of references because of my lack of competences. Anyway, Thank y
 # Directory Structure
 ```
 kz-jpylb
-    ├── Dockerfile            # Don't touch
-    ├── work                  # This will contain jupyter-notebooks
-    ├── README.md             # This is instruction manual
-    └── docker-compose.yml    # Don't touch
+    ┣ work                   # This will contain jupyter-notebooks
+    ┃   ┣ test1.ipynb        # This is example notebook_01
+    ┃   ┗ test2.ipynb        # This is example notebook_02
+    ┣ README.md              # This is an instruction manual
+    ┣ Dockerfile             # Don't touch
+    ┣ .env.example           # You have to modify, look at a detail below
+    ┣ .gitignore             # Don't touch
+    ┗ docker-compose.yml     # Don't touch
 ```
 
 
@@ -50,20 +54,26 @@ quick links here:
 Linux/MacOS:
 
     $ echo $UID
-    501
+    501  (yours might be different from mine)
 
-After execute above  command, you should modify `.env.example` like, `UID=???`. Then, You should rename the file to `.env`.
+After executing above command, you should follow the instructions:
+1. Open `.env.example`
+2. Modify `UID=501`  (this number was acquired above)
+3. Rename `.env.example` to `.env`
 
-
-
->**[Note]**
->if you are useing 'Docker for Windows',you need to configuring [Shared Drives](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/)
+That's all.
 
 
 ### 2.2 run a new Docker container
 Windows/Linux/MacOS:
 
     $ docker-compose up -d 
+    
+    
+### 2.2 End a Docker container
+Windows/Linux/MacOS:
+
+    $ docker-compose down
 
 
 This container is CPU Only.If you want to use GPU, rebuilding GPU images requires [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
