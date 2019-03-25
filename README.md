@@ -41,7 +41,6 @@ kz-jpylb
 
 
 
-
 ## 1. Installing Docker
 General installation instructions are
 [on the Docker site](https://docs.docker.com/installation/), but we give some
@@ -68,12 +67,41 @@ That's all.
 Windows/Linux/MacOS:
 
     $ docker-compose up -d 
+ 
+This container setup   
+```    
+Package            Version    
+------------------ --------
+beautifulsoup4     4.7.1   
+conda              4.6.8  
+matplotlib         3.0.3   
+numpy              1.15.4  
+pip                19.0.3  
+requests           2.21.0 
+scikit-image       0.14.2  
+scikit-learn       0.20.3  
+scipy              1.2.1   
+seaborn            0.9.0  
+SQLAlchemy         1.3.1 
+urllib3            1.24.1  
+xgboost            0.82
+
+etc...
+```
+
+### 3 How to use Jupyter Lab
+Copy/paste this URL into your browser when you connect for the first time,
+
+    http://localhost:8888/lab/?
+    
+if you want to use Jupyter-Notebook
+    
+    http://localhost:8888/?
     
     
-### 2.2 End a Docker container
+### 4 End a Docker container
 Windows/Linux/MacOS:
 
     $ docker-compose down
-
 
 This container is CPU Only.If you want to use GPU, rebuilding GPU images requires [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
