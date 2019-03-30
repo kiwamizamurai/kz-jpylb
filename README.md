@@ -1,5 +1,11 @@
 # kz-jpylb
 
+[![Version](https://img.shields.io/badge/version-v1.1.1-blue.svg)]()
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/kiwamizamurai/kz-jpylb/blob/d5ed93cd042dc80582cf037a909a0c0bc80824da/LICENSE)
+[![Python](https://img.shields.io/badge/python-v3.7-green.svg)]()
+[![Python](https://img.shields.io/badge/docker-v3.7-green.svg)]()
+<br>
+
 This repository makes it easy to create an environment fot data-analysis via [Docker](http://www.docker.com/).
 
 This is a base image 
@@ -33,6 +39,7 @@ kz-jpylb
     ┃   ┣ test1.ipynb        # This is example notebook_01
     ┃   ┗ test2.ipynb        # This is example notebook_02
     ┣ README.md              # This is an instruction manual
+    ┣ LICENSE                # This is a LICENSE
     ┣ Dockerfile             # Don't touch
     ┣ .env.example           # You have to modify, look at a detail below
     ┣ .gitignore             # Don't touch
