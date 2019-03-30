@@ -1,15 +1,38 @@
 version: "3"
 services:
+
+  mysql-kz:
+    image: mysql:8.0.15
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: kzbase
+    ports:
+      - "3308:3306"
+    volumes:
+      - "./my.conf:/etc/mysql/conf.d/config-file.cnf"
+      - "./kzdb:/var/lib/mysql:rw"
+
+
   jupyterlab:
     build:
-      context: .
+      context: ./jupyter
     user: root
     ports:
       - "8888:8888"
+    depends_on:
+      - mysql-kz
     volumes:
       - "./work:/home/jovyan/work"
     environment:
       NB_UID: $UID
       GRANT_SUDO: "yes"
     command: start.sh jupyter lab --NotebookApp.token=''
+
+
+  admin:
+    image: adminer
+    ports:
+      - 8080:8080
+
+
 

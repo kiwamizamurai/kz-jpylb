@@ -1,9 +1,9 @@
 # kz-jpylb
 
-[![Version](https://img.shields.io/badge/version-v1.1.1-blue.svg)]()
+[![Version](https://img.shields.io/badge/version-v2.1.1-blue.svg)]()
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/kiwamizamurai/kz-jpylb/blob/d5ed93cd042dc80582cf037a909a0c0bc80824da/LICENSE)
-[![Python](https://img.shields.io/badge/python-v3.7-green.svg)]()
-[![Python](https://img.shields.io/badge/docker-v3.7-green.svg)]()
+[![Python](https://img.shields.io/badge/python-v3-green.svg)]()
+[![Python](https://img.shields.io/badge/docker-v3-green.svg)]()
 <br>
 
 This repository makes it easy to create an environment fot data-analysis via [Docker](http://www.docker.com/).
@@ -29,21 +29,28 @@ Actually, these has nothing to do with this repository, I listed up some useful 
 - [第 4 回 Docker Compose を使った複数コンテナのデプロイ](https://www.ogis-ri.co.jp/otc/hiroba/technical/docker/part4.html)
 - [Who is jovyan? #358](https://github.com/jupyter/docker-stacks/issues/358)
 - [サーバーのDockerで起動したJupyter Notebookを他のパソコンからアクセスできるようにした話](https://qiita.com/yamasakih/items/d23ac0bf773e9b1b4d9d)
+- [MySQL and PostgreSQL with Docker in Development](https://devteds.com/episodes/8-mysql-and-postgresql-with-docker-in-development)
+- [The server requested authentication method unknown to the client (PHP)](https://stackoverflow.com/questions/52364415/the-server-requested-authentication-method-unknown-to-the-client-php)
 
 There are bunch of references because of my lack of competences. Anyway, Thank you very much.
 
 # Directory Structure
 ```
 kz-jpylb
-    ┣ work                   # This will contain jupyter-notebooks
-    ┃   ┣ test1.ipynb        # This is example notebook_01
-    ┃   ┗ test2.ipynb        # This is example notebook_02
-    ┣ README.md              # This is an instruction manual
-    ┣ LICENSE                # This is a LICENSE
-    ┣ Dockerfile             # Don't touch
+    ┣ work
+    ┃   ┣ test1.ipynb        # Example Notebook_01
+    ┃   ┗ test2.ipynb        # Example Notebook_02
+    ┣ juoyter                # Jupyter Stuffs
+    ┃   ┗ Dockerfile
+    ┣ kzdb                   # Database Stuffs
+    ┃   ┣ ...
+    ┃   ┗ kzbase             # Example Table
+    ┣ README.md              # Instruction Manual
+    ┣ LICENSE
+    ┣ my.conf
     ┣ .env.example           # You have to modify, look at a detail below
-    ┣ .gitignore             # Don't touch
-    ┗ docker-compose.yml     # Don't touch
+    ┣ .gitignore
+    ┗ docker-compose.yml
 ```
 
 
@@ -106,7 +113,19 @@ if you want to use Jupyter-Notebook
     http://localhost:8888/?
     
     
-### 4 End a Docker container
+### 4 How to use DataBase
+Copy/paste this URL into your browser when you connect for the first time,
+
+    http://localhost:8080/
+
+Or, You can also use database as follows:
+
+    $ docker-compose exec mysql-kz mysql -uroot -ppassword kzbase
+
+
+    
+    
+### 5 End a Docker container
 Windows/Linux/MacOS:
 
     $ docker-compose down
